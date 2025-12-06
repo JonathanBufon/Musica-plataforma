@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-[#05060c]">
+  <head>
+    <%- include('partials/head', { title: 'Música Plataforma – Onboarding' }) %>
+  </head>
+  <body class="h-full font-grotesk bg-night text-white">
+    <div class="min-h-screen px-6 py-12 lg:px-16 animate-fade-slide">
+      <header class="flex justify-between items-center mb-12">
+        <div class="flex items-center gap-3">
+          <span class="text-neon text-3xl"><i class="fa-solid fa-waveform"></i></span>
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-white/60">Música</p>
+            <p class="text-2xl font-semibold">Plataforma</p>
+          </div>
+        </div>
+        <a href="/" class="text-white/70 hover:text-white text-sm">Sair</a>
+      </header>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm uppercase tracking-[0.5em] text-white/50 mb-4">descubra</p>
+          <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-6">
+            O que você curte ouvir?
+          </h1>
+          <p class="text-lg text-white/70 mb-8">
+            Selecione os gêneros que combinam com você para que possamos preparar recomendações e playlists sob medida. Escolha pelo menos três para começar a experiência.
+          </p>
+          <button
+            form="genres-form"
+            type="submit"
+            class="inline-flex items-center gap-3 bg-neon text-night font-semibold px-8 py-4 rounded-full hover:bg-white transition"
+          >
+            Concluir e ir para o Player
+            <i class="fa-solid fa-circle-arrow-right text-xl"></i>
+          </button>
+        </div>
+        <div class="bg-dusk/80 rounded-3xl border border-white/5 p-8 shadow-2xl backdrop-blur">
+          <form id="genres-form" method="POST" action="/onboarding">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <% availableGenres.forEach((genre) => {
+                   const isSelected = selectedGenres.includes(genre);
+              %>
+                <label class="genre-card cursor-pointer transition-all duration-300 hover:border-neon hover:shadow-glow <%= isSelected ? 'selected ring-2 ring-neon/70 border-neon' : '' %>">
+                  <input
+                    type="checkbox"
+                    name="generos"
+                    value="<%= genre %>"
+                    class="hidden peer"
+                    <%= isSelected ? 'checked' : '' %>
+                  />
+                  <div class="card-content">
+                    <span class="icon"><i class="fa-solid fa-music"></i></span>
+                    <p><%= genre %></p>
+                  </div>
+                </label>
+              <% }) %>
+            </div>
+            <p class="text-white/50 text-xs mt-6">Selecione ao menos três gêneros para personalizar suas recomendações.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .genre-card {
+        position: relative;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.5rem 1rem;
+        background: rgba(5, 6, 12, 0.4);
+        text-align: left;
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+
+      .genre-card:hover {
+        border-color: #5DE7C9;
+        color: #5DE7C9;
+      }
+
+      .genre-card .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .genre-card .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 1.5rem;
+      }
+
+      .genre-card.selected,
+      .genre-card input:checked + .card-content {
+        color: #5DE7C9;
+      }
+
+      .genre-card.selected {
+        box-shadow: 0 0 35px rgba(93, 231, 201, 0.4);
+        border-color: #5DE7C9;
+      }
+    </style>
+  </body>
+</html>

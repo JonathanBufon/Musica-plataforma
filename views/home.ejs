@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-[#05060c]">
+  <head>
+    <%- include('partials/head', { title: 'Música Plataforma – Dashboard' }) %>
+  </head>
+  <body class="min-h-screen font-grotesk bg-night text-white">
+    <div class="min-h-screen px-6 py-8 lg:px-16 animate-fade-slide">
+      <%- include('partials/navbar', { user }) %>
+
+      <main class="space-y-12 animate-fade-slide">
+        <section>
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <p class="text-sm uppercase tracking-[0.5em] text-white/40">para você</p>
+              <h2 class="text-3xl font-semibold">Recomendado para Você</h2>
+            </div>
+            <% if (recommendedMusics.length) { %>
+              <a href="#explorar" class="text-sm text-white/70 hover:text-white flex items-center gap-2">
+                Ver tudo
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </a>
+            <% } %>
+          </div>
+
+          <% if (!recommendedMusics.length) { %>
+            <p class="text-white/60">Sem recomendações ainda. Explore músicas e ajuste seus gêneros preferidos.</p>
+          <% } else { %>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <% recommendedMusics.forEach((music) => {
+                   const isFavorite = favoriteIds.includes(String(music._id));
+              %>
+                <article
+                  class="group bg-gradient-to-b from-dusk/70 to-night/70 rounded-3xl p-4 border border-white/5 shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-white/5"
+                >
+                  <div class="relative rounded-2xl overflow-hidden mb-4">
+                    <img src="<%= music.capa %>" alt="Capa da música <%= music.titulo %>" class="w-full transition-transform duration-300 group-hover:scale-105" />
+                    <button
+                      class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-night text-3xl"
+                    >
+                      <i class="fa-solid fa-play bg-white/80 rounded-full w-14 h-14 flex items-center justify-center"></i>
+                    </button>
+                  </div>
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <p class="text-lg font-semibold"><%= music.titulo %></p>
+                      <p class="text-white/60 text-sm"><%= music.artista %></p>
+                    </div>
+                    <a
+                      href="/favoritar/<%= music._id %>"
+                      class="text-xl transition-transform duration-200 active:scale-75 <%= isFavorite ? 'text-highlight animate-pulse' : 'text-white/60 hover:text-highlight' %>"
+                    >
+                      <i class="<%= isFavorite ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
+                    </a>
+                  </div>
+                </article>
+              <% }); %>
+            </div>
+          <% } %>
+        </section>
+
+        <section id="explorar">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div>
+              <p class="text-sm uppercase tracking-[0.5em] text-white/40">descubra</p>
+              <h2 class="text-3xl font-semibold">Explorar Músicas</h2>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="/"
+                class="px-4 py-2 rounded-full border border-white/10 text-sm transition
+                  <%= !activeFilter ? 'bg-white/10 text-white' : 'text-white/70 hover:border-white/30' %>"
+              >
+                Todos
+              </a>
+              <% genres.forEach((genre) => { %>
+                <a
+                  href="/?filtro=<%= genre %>"
+                  class="px-4 py-2 rounded-full border text-sm transition
+                    <%= activeFilter === genre ? 'bg-white/10 border-white/40 text-white' : 'border-white/10 text-white/70 hover:border-white/30' %>"
+                >
+                  <%= genre %>
+                </a>
+              <% }) %>
+            </div>
+          </div>
+
+          <% if (!exploreMusics.length) { %>
+            <p class="text-white/60">Nenhuma música cadastrada ainda.</p>
+          <% } else { %>
+            <div class="bg-dusk/70 border border-white/5 rounded-3xl divide-y divide-white/5">
+              <% exploreMusics.forEach((music) => {
+                   const isFavorite = favoriteIds.includes(String(music._id));
+              %>
+                <article class="group flex flex-wrap items-center gap-4 p-4 transition-all duration-300 hover:bg-white/5 hover:scale-[1.01]">
+                  <div class="relative">
+                    <img src="<%= music.capa %>" alt="Capa <%= music.titulo %>" class="w-16 h-16 rounded-2xl transition-transform duration-300 group-hover:scale-110" />
+                  </div>
+                  <div class="flex-1 min-w-[200px]">
+                    <p class="text-lg font-semibold"><%= music.titulo %></p>
+                    <p class="text-white/60 text-sm"><%= music.artista %></p>
+                  </div>
+                  <span class="text-white/60 text-sm"><%= music.genero %></span>
+                  <a
+                    href="/favoritar/<%= music._id %>"
+                    class="text-xl transition-transform duration-200 active:scale-75 <%= isFavorite ? 'text-highlight animate-pulse' : 'text-white/60 hover:text-highlight' %>"
+                  >
+                    <i class="<%= isFavorite ? 'fa-solid fa-heart' : 'fa-regular fa-heart' %>"></i>
+                  </a>
+                </article>
+              <% }); %>
+            </div>
+          <% } %>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

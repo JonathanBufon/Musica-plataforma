@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-[#05060c]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Música Plataforma – Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              grotesk: ['"Space Grotesk"', 'sans-serif'],
+            },
+            colors: {
+              neon: '#5DE7C9',
+              dusk: '#1E1F2A',
+              night: '#05060C',
+              highlight: '#F5527A',
+            },
+            boxShadow: {
+              glow: '0 0 30px rgba(93, 231, 201, 0.35)',
+            },
+          },
+        },
+      };
+    </script>
+    <script
+      src="https://kit.fontawesome.com/a2e0e9b2f7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="min-h-screen font-grotesk bg-night text-white">
+    <div class="min-h-screen px-6 py-8 lg:px-16">
+      <header class="flex flex-wrap items-center justify-between gap-6 mb-10">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon to-highlight/70 flex items-center justify-center text-night text-2xl font-semibold shadow-glow">
+            <i class="fa-solid fa-waveform"></i>
+          </div>
+          <div>
+            <p class="text-sm uppercase tracking-[0.5em] text-white/50">Música</p>
+            <h1 class="text-3xl font-semibold">Plataforma</h1>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="text-right">
+            <p class="text-white/60 text-xs uppercase tracking-[0.4em]">Olá</p>
+            <p class="text-xl font-semibold">Marina Souza</p>
+          </div>
+          <img src="https://placehold.co/56x56" alt="Avatar" class="w-14 h-14 rounded-full border border-white/10" />
+        </div>
+      </header>
+
+      <main class="space-y-12">
+        <section>
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="text-sm uppercase tracking-[0.5em] text-white/40">para você</p>
+              <h2 class="text-3xl font-semibold">Recomendado para Você</h2>
+            </div>
+            <button class="text-sm text-white/70 hover:text-white flex items-center gap-2">
+              Ver tudo
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+          </div>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Card -->
+            <article class="bg-gradient-to-b from-dusk/70 to-night/70 rounded-3xl p-4 border border-white/5 shadow-2xl">
+              <div class="rounded-2xl overflow-hidden mb-4">
+                <img src="https://placehold.co/400x400" alt="Capa da música" class="w-full" />
+              </div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="text-lg font-semibold">Midnight Drive</p>
+                  <p class="text-white/60 text-sm">Neon City</p>
+                </div>
+                <button class="text-white/60 hover:text-highlight text-xl">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+            </article>
+            <article class="bg-gradient-to-b from-dusk/70 to-night/70 rounded-3xl p-4 border border-white/5 shadow-2xl">
+              <div class="rounded-2xl overflow-hidden mb-4">
+                <img src="https://placehold.co/400x400" alt="Capa da música" class="w-full" />
+              </div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="text-lg font-semibold">Pagodinho Solar</p>
+                  <p class="text-white/60 text-sm">Grupo Aurora</p>
+                </div>
+                <button class="text-highlight text-xl">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+              </div>
+            </article>
+            <article class="bg-gradient-to-b from-dusk/70 to-night/70 rounded-3xl p-4 border border-white/5 shadow-2xl">
+              <div class="rounded-2xl overflow-hidden mb-4">
+                <img src="https://placehold.co/400x400" alt="Capa da música" class="w-full" />
+              </div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="text-lg font-semibold">Sertão Futurista</p>
+                  <p class="text-white/60 text-sm">Duo Horizonte</p>
+                </div>
+                <button class="text-white/60 hover:text-highlight text-xl">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+            </article>
+            <article class="bg-gradient-to-b from-dusk/70 to-night/70 rounded-3xl p-4 border border-white/5 shadow-2xl">
+              <div class="rounded-2xl overflow-hidden mb-4">
+                <img src="https://placehold.co/400x400" alt="Capa da música" class="w-full" />
+              </div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="text-lg font-semibold">HipHop Prisma</p>
+                  <p class="text-white/60 text-sm">MC Prisma</p>
+                </div>
+                <button class="text-white/60 hover:text-highlight text-xl">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="text-sm uppercase tracking-[0.5em] text-white/40">descubra</p>
+              <h2 class="text-3xl font-semibold">Explorar Músicas</h2>
+            </div>
+            <div class="flex gap-3">
+              <button class="px-4 py-2 rounded-full border border-white/10 text-sm text-white/70 hover:border-white/30">Todos</button>
+              <button class="px-4 py-2 rounded-full border border-white/10 text-sm text-white/70 hover:border-white/30">Favoritos</button>
+              <button class="px-4 py-2 rounded-full border border-white/10 text-sm text-white/70 hover:border-white/30">Gêneros</button>
+            </div>
+          </div>
+          <div class="bg-dusk/70 border border-white/5 rounded-3xl divide-y divide-white/5">
+            <article class="flex items-center gap-4 p-4">
+              <img src="https://placehold.co/64x64" alt="Capa" class="w-16 h-16 rounded-2xl" />
+              <div class="flex-1">
+                <p class="text-lg font-semibold">Reflexo Neon</p>
+                <p class="text-white/60 text-sm">DJ Aurora</p>
+              </div>
+              <span class="text-white/60 text-sm">Pop</span>
+              <button class="text-white/60 hover:text-highlight text-xl">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </article>
+            <article class="flex items-center gap-4 p-4">
+              <img src="https://placehold.co/64x64" alt="Capa" class="w-16 h-16 rounded-2xl" />
+              <div class="flex-1">
+                <p class="text-lg font-semibold">Raiz Digital</p>
+                <p class="text-white/60 text-sm">Duo Horizonte</p>
+              </div>
+              <span class="text-white/60 text-sm">Sertanejo</span>
+              <button class="text-highlight text-xl">
+                <i class="fa-solid fa-heart"></i>
+              </button>
+            </article>
+            <article class="flex items-center gap-4 p-4">
+              <img src="https://placehold.co/64x64" alt="Capa" class="w-16 h-16 rounded-2xl" />
+              <div class="flex-1">
+                <p class="text-lg font-semibold">Groove Litorâneo</p>
+                <p class="text-white/60 text-sm">Banda Horizonte</p>
+              </div>
+              <span class="text-white/60 text-sm">Pagode</span>
+              <button class="text-white/60 hover:text-highlight text-xl">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </article>
+            <article class="flex items-center gap-4 p-4">
+              <img src="https://placehold.co/64x64" alt="Capa" class="w-16 h-16 rounded-2xl" />
+              <div class="flex-1">
+                <p class="text-lg font-semibold">Neurobass</p>
+                <p class="text-white/60 text-sm">MC Prisma</p>
+              </div>
+              <span class="text-white/60 text-sm">Hip Hop</span>
+              <button class="text-white/60 hover:text-highlight text-xl">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

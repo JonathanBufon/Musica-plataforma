@@ -1,0 +1,68 @@
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= typeof title !== 'undefined' ? title : 'Música Plataforma' %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              grotesk: ['"Space Grotesk"', 'sans-serif'],
+            },
+            colors: {
+              neon: '#5DE7C9',
+              dusk: '#1E1F2A',
+              night: '#05060C',
+              highlight: '#F5527A',
+            },
+            boxShadow: {
+              glow: '0 0 30px rgba(93, 231, 201, 0.35)',
+            },
+          },
+        },
+      };
+    </script>
+    <script
+      src="https://kit.fontawesome.com/a2e0e9b2f7.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @keyframes fade-slide-up {
+        0% {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-slide {
+        animation: fade-slide-up 0.8s ease forwards;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(93, 231, 201, 0.8), rgba(245, 82, 122, 0.8));
+        border-radius: 999px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, rgba(93, 231, 201, 1), rgba(245, 82, 122, 1));
+      }
+    </style>

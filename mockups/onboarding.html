@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-[#05060c]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Música Plataforma – Onboarding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              grotesk: ['"Space Grotesk"', 'sans-serif'],
+            },
+            colors: {
+              neon: '#5DE7C9',
+              dusk: '#1E1F2A',
+              night: '#05060C',
+              highlight: '#F5527A',
+            },
+          },
+        },
+      };
+    </script>
+    <script
+      src="https://kit.fontawesome.com/a2e0e9b2f7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="h-full font-grotesk bg-night text-white">
+    <div class="min-h-screen px-6 py-12 lg:px-16">
+      <header class="flex justify-between items-center mb-12">
+        <div class="flex items-center gap-3">
+          <span class="text-neon text-3xl"><i class="fa-solid fa-waveform"></i></span>
+          <div>
+            <p class="text-sm uppercase tracking-[0.3em] text-white/60">Música</p>
+            <p class="text-2xl font-semibold">Plataforma</p>
+          </div>
+        </div>
+        <a href="./login.html" class="text-white/70 hover:text-white text-sm">Sair</a>
+      </header>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-sm uppercase tracking-[0.5em] text-white/50 mb-4">descubra</p>
+          <h1 class="text-4xl lg:text-5xl font-semibold leading-tight mb-6">
+            O que você curte ouvir?
+          </h1>
+          <p class="text-lg text-white/70 mb-8">
+            Selecione os gêneros que combinam com você para que possamos preparar recomendações e playlists sob medida. Escolha pelo menos três para começar a experiência.
+          </p>
+          <button
+            class="inline-flex items-center gap-3 bg-neon text-night font-semibold px-8 py-4 rounded-full hover:bg-white transition">
+            Concluir e ir para o Player
+            <i class="fa-solid fa-circle-arrow-right text-xl"></i>
+          </button>
+        </div>
+        <div class="bg-dusk/80 rounded-3xl border border-white/5 p-8 shadow-2xl backdrop-blur">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            <!-- Cards -->
+            <button class="genre-card">
+              <div class="card-content">
+                <span class="icon"><i class="fa-solid fa-bolt"></i></span>
+                <p>Rock</p>
+              </div>
+            </button>
+            <button class="genre-card">
+              <div class="card-content">
+                <span class="icon"><i class="fa-solid fa-microphone-lines"></i></span>
+                <p>Hip Hop</p>
+              </div>
+            </button>
+            <button class="genre-card">
+              <div class="card-content">
+                <span class="icon"><i class="fa-solid fa-drum"></i></span>
+                <p>Pagode</p>
+              </div>
+            </button>
+            <button class="genre-card">
+              <div class="card-content">
+                <span class="icon"><i class="fa-solid fa-guitar"></i></span>
+                <p>Sertanejo</p>
+              </div>
+            </button>
+            <button class="genre-card">
+              <div class="card-content">
+                <span class="icon"><i class="fa-solid fa-headphones"></i></span>
+                <p>Pop</p>
+              </div>
+            </button>
+            <button class="genre-card">
+              <div class="card-content">
+                <span class="icon"><i class="fa-solid fa-heart-music-camera-bolt"></i></span>
+                <p>Indie</p>
+              </div>
+            </button>
+          </div>
+          <p class="text-white/50 text-xs mt-6">Clique em um gênero para selecioná-lo. Selecionados aparecem com glow neon.</p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .genre-card {
+        position: relative;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.5rem 1rem;
+        background: rgba(5, 6, 12, 0.4);
+        text-align: left;
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+
+      .genre-card:hover {
+        border-color: #5DE7C9;
+        color: #5DE7C9;
+      }
+
+      .genre-card .card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .genre-card .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 1.5rem;
+      }
+
+      .genre-card.selected {
+        box-shadow: 0 0 35px rgba(93, 231, 201, 0.4);
+        border-color: #5DE7C9;
+        color: #5DE7C9;
+      }
+    </style>
+  </body>
+</html>
