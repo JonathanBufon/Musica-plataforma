@@ -26,7 +26,7 @@ MVP fullstack (Node.js + Express + MongoDB + EJS) que transforma os mockups Tail
    ```bash
    npm run dev
    ```
-5. Acesse http://localhost:3000
+5. Acesse http://localhost:3000/login
 
 ## Tecnologias
 - Node.js + Express
